@@ -1,0 +1,22 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Trigger Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: convictional/trigger-workflow-and-wait@v1.6.1
+      with:
+        owner: ze-tech
+        repo: livebook
+        github_token: ${{ secrets.PROVIDENCE_PERSONAL_ACCESS_TOKEN }}
+        workflow_file_name: providence.yaml
