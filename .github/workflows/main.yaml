@@ -6,19 +6,15 @@
 name: Trigger Deploy
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
-
+    inputs:
+      unique_id:
+        description: 'run identifier'
+        required: false
 jobs:
-  build:
-    name: Trigger providence
+  id:
+    name: Workflow ID Provider
     runs-on: ubuntu-latest
-
     steps:
-    - uses: convictional/trigger-workflow-and-wait@v1.6.1
-      with:
-        owner: ze-tech
-        repo: livebook
-        github_token: ${{ secrets.PROVIDENCE_PERSONAL_ACCESS_TOKEN }}
-        workflow_file_name: providence.yaml
+      - name: ${{github.event.inputs.unique_id}}
+        run: echo run identifier ${{ inputs.unique_id }}
