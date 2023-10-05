@@ -6,11 +6,13 @@
 name: Trigger Deploy
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and test
+    name: Trigger providence
     runs-on: ubuntu-latest
 
     steps:
