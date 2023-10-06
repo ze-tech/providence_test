@@ -12,7 +12,7 @@ on:
         description: 'run identifier'
         required: false
 jobs:
-  id:
+  unique_id:
     name: Workflow ID Provider
     runs-on: ubuntu-latest
     steps:
