@@ -10,7 +10,7 @@ on:
     inputs:
       unique_id:
       description: 'run identifier'
-        required: false
+      required: false
 jobs:
   id:
     name: Workflow ID Provider
