@@ -7,7 +7,17 @@ name: Database Backup
 
 on:
   workflow_dispatch:
+    inputs:
+      unique_id:
+      description: 'run identifier'
+        required: false
 jobs:
+  id:
+    name: Workflow ID Provider
+    runs-on: ubuntu-latest
+    steps:
+      - name: ${{github.event.inputs.unique_id}}
+        run: echo run identifier ${{ inputs.unique_id }}
   build:
     runs-on: ubuntu-latest
     steps:
