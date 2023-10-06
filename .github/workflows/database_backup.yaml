@@ -18,9 +18,3 @@ jobs:
     steps:
       - name: ${{github.event.inputs.unique_id}}
         run: echo run identifier ${{ inputs.unique_id }}
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pause for 10 seconds
-        run: |
-          sleep 10
