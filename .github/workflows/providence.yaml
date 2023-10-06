@@ -6,20 +6,15 @@
 name: Elixir CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
-
-permissions:
-  contents: read
-
+    inputs:
+      unique_id:
+        description: 'run identifier'
+        required: false
 jobs:
-  build:
-
-    name: Build and test
+  id:
+    name: Workflow ID Provider
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - name: ${{github.event.inputs.unique_id}}
+        run: echo run identifier ${{ inputs.unique_id }}

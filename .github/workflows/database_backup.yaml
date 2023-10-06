@@ -3,18 +3,14 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Trigger Deploy
+name: Database Backup
 
 on:
   workflow_dispatch:
-    inputs:
-      unique_id:
-        description: 'run identifier'
-        required: false
 jobs:
-  id:
-    name: Workflow ID Provider
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: ${{github.event.inputs.unique_id}}
-        run: echo run identifier ${{ inputs.unique_id }}
+      - name: Pause for 10 seconds
+        run: |
+          sleep 10
